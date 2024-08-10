@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
+import requests
 #from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
+
 
 # Write directly to the app
 streamlit.title('🍹 Pending Smoothie Orders 🍹')
@@ -47,3 +49,9 @@ if my_dataframe:
 
 else:
     st.success('There are no pending order right now',icon="🍹")
+
+
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
+
