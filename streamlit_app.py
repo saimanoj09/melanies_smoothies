@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -8,7 +8,9 @@ st.title('🍹 Pending Smoothie Orders 🍹')
 st.write("orders that need to be filled!")
 
 # Get the active session
-session = get_active_session()
+#session = get_active_session()
+cnx=st.connection("snowflake")
+session=cnx.session()
 # Fetch the data as a DataFrame
 my_dataframe = session.table('smoothies.public.orders').filter(col("ORDER_FILLED") == False).to_pandas()
 
