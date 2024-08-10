@@ -4,7 +4,7 @@ import pandas as pd
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
-st.title('🍹 Pending Smoothie Orders 🍹')
+streamlit.title('🍹 Pending Smoothie Orders 🍹')
 st.write("orders that need to be filled!")
 
 # Get the active session
